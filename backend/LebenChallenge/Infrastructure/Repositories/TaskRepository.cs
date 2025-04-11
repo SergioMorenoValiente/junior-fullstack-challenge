@@ -18,15 +18,18 @@ public class TaskRepository : ITaskRepository
     {
         TaskItem taskItem = new TaskItem(task.Name, task.Description, task.DueDate);
         _context.Tasks.Add(taskItem);
-
         await _context.SaveChangesAsync();
-
         return taskItem;
     }
 
-    public Task DeleteAsync(int id)
+    public async Task DeleteAsync(int id)
     {
-        throw new NotImplementedException();
+        var task = await _context.Tasks.FirstOrDefaultAsync(t => t.Id == id);
+        if (task != null)
+        {
+            _context.Tasks.Remove(task);
+            await _context.SaveChangesAsync();
+        }
     }
 
     public async Task<IEnumerable<TaskItem>> GetAllAsync()
@@ -34,13 +37,15 @@ public class TaskRepository : ITaskRepository
         return await _context.Tasks.ToListAsync();
     }
 
-    public Task<TaskItem> GetByIdAsync(int id)
+    public async Task<TaskItem> GetByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        return await _context.Tasks.FirstOrDefaultAsync(t => t.Id == id);
     }
 
-    public Task<TaskItem> UpdateAsync(TaskItem task)
+    public async Task<TaskItem> UpdateAsync(TaskItem task)
     {
-        throw new NotImplementedException();
+        _context.Tasks.Update(task);
+        await _context.SaveChangesAsync();
+        return task;
     }
 }

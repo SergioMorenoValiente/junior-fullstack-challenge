@@ -12,8 +12,14 @@ public class DeleteTaskUseCase : IDeleteTaskUseCase
         _taskRepository = taskRepository;
     }
 
-    public Task ExecuteAsync(DeleteTaskDTO taskToDelete)
+    public async Task<bool> ExecuteAsync(int id)
     {
-        throw new NotImplementedException("DeleteTaskUseCase is not implemented yet.");
-    }
+        var task = await _taskRepository.GetByIdAsync(id);
+        if (task == null)
+        {
+            return false; 
+        }
+        await _taskRepository.DeleteAsync(id);
+        return true; 
+    } 
 }

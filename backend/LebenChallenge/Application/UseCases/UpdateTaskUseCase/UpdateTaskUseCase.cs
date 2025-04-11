@@ -4,24 +4,22 @@ using LebenChallenge.Domain;
 
 namespace LebenChallenge.Application.UseCases;
 
-public class CompleteTaskUseCase : ICompleteTaskUseCase
+public class UpdateTaskUseCase : IUpdateTaskUseCase
 {
     private readonly ITaskRepository _taskRepository;
 
-    public CompleteTaskUseCase(ITaskRepository taskRepository)
+    public UpdateTaskUseCase(ITaskRepository taskRepository)
     {
         _taskRepository = taskRepository;
     }
 
-    public async Task<TaskItem> ExecuteAsync(CompleteTaskDTO taskToComplete)
+    public async Task<TaskItem> ExecuteAsync(int id,UpdateTaskDTO taskToUpdate)
     {
-        var task = await _taskRepository.GetByIdAsync(taskToComplete.Id);
-        if (task == null)
-        {
+        var task = await _taskRepository.GetByIdAsync(id);
+        if (task == null){
             return null;
         }
-
-        task.MarkAsCompleted();
+        task.UpdateTaskItem(taskToUpdate.Name, taskToUpdate.Description, taskToUpdate.DueDate);
         return await _taskRepository.UpdateAsync(task);
     }
 }

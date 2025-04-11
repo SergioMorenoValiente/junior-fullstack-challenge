@@ -1,0 +1,134 @@
+.card {
+    background: #ffffff;
+    border: 1px solid #e0e6ed;
+    border-left: 5px solid #0A2540;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 16px rgba(10, 37, 64, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(10, 37, 64, 0.15);
+}
+
+.card.completed {
+    background-color: #f4f7fa;
+    opacity: 0.85;
+}
+
+.card p {
+    font-size:15px;
+    margin: 6px 0;
+}
+
+.card h3 {
+    font-size: 20px;
+    color: #0A2540;
+    margin: 0;
+}
+
+.card .name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card .input,
+.card .textarea,
+.card .select {
+    width: 100%;
+    padding: 10px 12px;
+    margin-top: 4px;
+    margin-bottom: 12px;
+    border: 1px solid #cfd8e3;
+    background-color: #f0f4f9;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: 'Segoe UI', sans-serif;
+}
+.card .priority {
+    border-radius: 10px;
+    padding: 4px;
+}
+
+.card .textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+.priority-1 {
+    border: 1px solid;
+    border-color: #dc2626;
+    background-color: #dc262621;
+}
+
+.priority-2 {
+    border: 1px solid;
+    border-color: #F97316;
+    background-color: #f9741639;
+}
+
+.priority-3 {
+    border: 1px solid;
+    border-color: #FACC15;
+    background-color: #facc1529;
+}
+
+.priority-4 {
+    border: 1px solid;
+    border-color: #4ADE80;
+    background-color: #4ade8030;
+}
+
+.priority-5 {
+    border: 1px solid;
+    border-color: #60A5FA;
+    background-color: #60a5fa38;
+}
+
+.buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 10px 16px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+    filter: brightness(92%);
+}
+
+.btn.complete {
+    background-color: #1E3A8A;
+    color: white;
+}
+
+.btn.edit {
+    background-color: #FA7F27;
+    color: white;
+}
+.btn.delete {
+    background-color: #e84444;
+    color: white;
+}
+
+.btn.save {
+    background-color: #0A2540;
+    color: white;
+}
+
+.btn.cancel {
+    background-color: #cfd8e3;
+    color: #0A2540;
+}

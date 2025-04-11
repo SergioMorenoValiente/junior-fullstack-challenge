@@ -29,6 +29,8 @@ builder.Services.AddScoped<IGetTaskByIdUseCase, GetTaskByIdUseCase>();
 builder.Services.AddScoped<ICompleteTaskUseCase, CompleteTaskUseCase>();
 builder.Services.AddScoped<ICreateTaskUseCase, CreateTaskUseCase>();
 builder.Services.AddScoped<IDeleteTaskUseCase, DeleteTaskUseCase>();
+builder.Services.AddScoped<IUpdateTaskUseCase, UpdateTaskUseCase>();
+builder.Services.AddScoped<ISetTaskPriorityUseCase, SetTaskPriorityUseCase>();
 
 var app = builder.Build();
 

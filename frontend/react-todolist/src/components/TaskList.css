@@ -1,0 +1,123 @@
+.sub-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-container {
+    position: relative;
+    margin-bottom: 40px;
+    justify-content: center;
+    align-items: center; 
+}
+
+.search-input {
+    font-size: 22px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 200px;
+    border: none;
+    border-bottom: 1px solid #515151;
+    background: transparent;
+}
+
+.search-input:focus {
+    outline: none;
+}
+
+.search-container label {
+    color: #999;
+    font-size: 22px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+}
+
+.search-input:focus~label,
+.search-input:valid~label {
+    top: -20px;
+    font-size: 14px;
+    color: #5264AE;
+}
+
+.bar {
+    position: relative;
+    display: block;
+    width: 200px;
+}
+
+.bar:before,
+.bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: #5264AE;
+    transition: 0.2s ease all;
+}
+
+.bar:before {
+    left: 50%;
+}
+
+.bar:after {
+    right: 50%;
+}
+
+.search-input:focus~.bar:before,
+.search-input:focus~.bar:after {
+    width: 50%;
+}
+
+.highlight {
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.search-input:focus~.highlight {
+    animation: inputHighlighter 0.3s ease;
+}
+
+@keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+
+.lists-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 16px;
+}
+
+.list-container {
+    width: 40%;
+}
+
+.list-container h2 {
+    font-size: 25px;
+    color: #333;
+    margin-bottom: 16px;
+}
+
+.list-container .p-notask{
+    font-size: 16px;
+    color: #999;
+    margin-top: 20px;
+    font-style: italic;
+}

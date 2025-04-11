@@ -4,5 +4,5 @@ namespace LebenChallenge.Application.UseCases;
 
 public interface IDeleteTaskUseCase
 {
-    Task ExecuteAsync(DeleteTaskDTO taskToDelete);
+    Task<bool> ExecuteAsync(int id);
 }
